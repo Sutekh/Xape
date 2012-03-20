@@ -10,27 +10,20 @@ has 'charset' => (
     required => 1,
 );
 
-around BUILDARGS => sub {
-    my $orig  = shift;
-    my $class = shift;
-    return 1 unless $class;
-
-    if (@_ == 1) {
-        local $_[0] = $_[0];
-        unless (ref $_[0]) {
-            my $package_name = "Xape::Charset::$_[0]";
+around BUILDARGS => func($orig, $class, @args) {
+    if (@args == 1) {
+        unless (ref $args[0]) {
+            my $package_name = "Xape::Charset::$args[0]";
             eval {
                 require $package_name;
                 import $package_name;
             };
-            $_[0] = $package_name->new;
+            $args[0] = $package_name->new;
         }
-        return $class->$orig(charset => $_[0]);
+        @args = (charset => $args[0]);
+    }
 
-    }
-    else {
-        return $class->$orig(@_);
-    }
+    return $class->$orig(@args);
 };
 
 method sum(Str $input) {
