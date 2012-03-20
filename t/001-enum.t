@@ -2,6 +2,9 @@
 
 use strict;
 use warnings;
+use utf8;
+binmode(STDOUT, ':utf8');
+
 use Test::More;
 
 BEGIN {
@@ -12,10 +15,10 @@ BEGIN {
 
 my $charset = Xape::Charset::he->new();
 isa_ok $charset, 'Xape::Charset::he';
-is $charset->lookup('a'), 'A';
-is $charset->lookup('b'), 'B';
-isnt $charset->lookup('a'), 'B';
-isnt $charset->lookup('A'), 'a';
+is $charset->lookup("\x{5d0}"), 1;
+is $charset->lookup("\x{5da}"), 20;
+is $charset->lookup("\x{5db}"), 20;
+is $charset->lookup("\x{5ea}"), 400;
 
 my $enum;
 $enum = Xape::Enumerator->new(charset => $charset);
@@ -27,6 +30,10 @@ isa_ok $enum, 'Xape::Enumerator';
 $enum = Xape::Enumerator->new('he');
 isa_ok $enum, 'Xape::Enumerator';
 
-can_ok $enum, qw(enumerate);
+can_ok $enum, qw(sum);
+
+is $enum->sum("\x{5d0}"), 1, 'Single sum';
+is $enum->sum("\x{5d0}\x{5ea}"), 401, 'Multiple sum';
+is $enum->sum("\x{5d0} \x{5ea}   \x{5da}"), 421, 'Ignore space';
 
 done_testing;

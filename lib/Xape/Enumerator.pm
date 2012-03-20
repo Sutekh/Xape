@@ -33,8 +33,11 @@ around BUILDARGS => sub {
     }
 };
 
-method enumerate(Str $input) {
-    return undef;
+method sum(Str $input) {
+    my @chars = split '', $input;
+    my $sum = 0;
+    $sum += $self->charset->lookup($_) // 0 for (@chars);
+    return $sum;
 }
 
 __PACKAGE__->meta->make_immutable;
