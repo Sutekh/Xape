@@ -14,10 +14,7 @@ around BUILDARGS => func($orig, $class, @args) {
     if (@args == 1) {
         unless (ref $args[0]) {
             my $package_name = "Xape::Charset::$args[0]";
-            eval {
-                require $package_name;
-                import $package_name;
-            };
+            eval "require $package_name;"; ## no critic
             $args[0] = $package_name->new;
         }
         @args = (charset => $args[0]);
