@@ -6,7 +6,7 @@ use Method::Signatures;
 requires 'charmap';
 
 method lookup($in) {
-    no warnings qw(uninitialized);
+    no warnings qw(uninitialized); ## no critic
     return $self->charmap->{$in} // $self->charmap->{$self->xlitmap->{uc($in)}};
 }
 
