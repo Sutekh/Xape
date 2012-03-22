@@ -38,6 +38,37 @@ has 'charmap' => (
     },
 );
 
+has 'xlitmap' => (
+    is => 'ro',
+    isa => 'HashRef',
+    default => sub {
+        return {
+            'A' => "\x{5d0}",
+            'B' => "\x{5d1}",
+            'G' => "\x{5d2}",
+            'D' => "\x{5d3}",
+            'H' => "\x{5d4}",
+            'V' => "\x{5d5}",
+            'Z' => "\x{5d6}",
+            'C' => "\x{5d7}",
+            'T' => "\x{5d8}",
+            'I' => "\x{5d9}",
+            'K' => "\x{5db}",
+            'L' => "\x{5dc}",
+            'M' => "\x{5de}",
+            'N' => "\x{5e0}",
+            'S' => "\x{5e1}",
+            'O' => "\x{5e2}",
+            'P' => "\x{5e4}",
+            'J' => "\x{5e6}",
+            'Q' => "\x{5e7}",
+            'R' => "\x{5e8}",
+            'W' => "\x{5e9}",
+            'X' => "\x{5ea}",
+        };
+    },
+);
+
 with 'Xape::Charset';
 
 __PACKAGE__->meta->make_immutable;

@@ -33,7 +33,10 @@ $enum = Xape::Enumerator->new('he');
 isa_ok $enum, 'Xape::Enumerator';
 
 is $enum->sum("\x{5d0}"), 1, 'Single sum';
+is $enum->sum('A'), 1, 'Single sum (xlit)';
 is $enum->sum("\x{5d0}\x{5ea}"), 401, 'Multiple sum';
+is $enum->sum('AX'), 401, 'Multiple sum (xlit)';
 is $enum->sum("\x{5d0} \x{5ea}   \x{5da}"), 421, 'Ignore space';
+is $enum->sum('A X K'), 421, 'Ignore space (xlit)';
 
 done_testing;
