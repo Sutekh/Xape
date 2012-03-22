@@ -1,5 +1,7 @@
 package Xape;
 
+# ABSTRACT: Gematria indexer and enumerator
+
 use Any::Moose;
 use Method::Signatures;
 
