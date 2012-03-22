@@ -33,6 +33,21 @@ method sum(Str $input) {
     return $sum;
 }
 
+method xlit(Str $input) {
+    my @words = split /\b/, $input;
+    my @outwords;
+    for my $word (@words) {
+        $word =~ s/\s//g;
+        next unless $word;
+        my @chars = split '', $word;
+        my $output = '';
+        $output .= $self->charset->xlit_lookup($_) // '' for (@chars);
+        push @outwords, $output;
+    }
+    return join ' ', @outwords;
+}
+
 __PACKAGE__->meta->make_immutable;
+no Any::Moose;
 
 1;

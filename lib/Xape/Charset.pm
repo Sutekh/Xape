@@ -10,6 +10,10 @@ method lookup($in) {
     return $self->charmap->{$in} // $self->charmap->{$self->xlitmap->{uc($in)}};
 }
 
+method xlit_lookup($in) {
+    return $self->xlitmap->{uc($in)};
+}
+
 no Any::Moose;
 
 1;

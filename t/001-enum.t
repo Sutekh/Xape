@@ -39,4 +39,7 @@ is $enum->sum('AX'), 401, 'Multiple sum (xlit)';
 is $enum->sum("\x{5d0} \x{5ea}   \x{5da}"), 421, 'Ignore space';
 is $enum->sum('A X K'), 421, 'Ignore space (xlit)';
 
+is $enum->xlit('IHVH'), "\x{5d9}\x{5d4}\x{5d5}\x{5d4}", 'Xlit';
+is $enum->xlit('IHVH    NCW'), "\x{5d9}\x{5d4}\x{5d5}\x{5d4} \x{5e0}\x{5d7}\x{5e9}", 'Xlit with spaces';
+
 done_testing;
