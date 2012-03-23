@@ -9,4 +9,4 @@ plugins:
             dbi_params:
                 RaiseError: 1
                 AutoCommit: 1
-            log_queries: 1
+            log_queries: 0

@@ -1,3 +1,23 @@
+.toplevel_table {
+    margin:auto;
+    width:40%;
+    background-color:#b0e0b0;
+}
+
+.inputs {
+    margin:left;
+    width:20em;
+}
+
+.outputs {
+    margin:auto;
+    width:10em;
+}
+
+.matches {
+    margin:auto;
+    width:10em;
+}
 dl {
     float: left;
 }
