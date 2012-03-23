@@ -1,0 +1,8 @@
+dl {
+    float: left;
+}
+
+dl dd {
+    display: block;
+    margin: 0;
+}
