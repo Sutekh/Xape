@@ -1,25 +1,31 @@
+@font-face {
+    font-family: Prociono;
+    src: url("Prociono.otf") format("opentype");
+}
+
 body {
     background-color:#a63100;
 }
 
 .toplevel_table {
     margin:auto;
-    width:40%;
+    width:50%;
     background-color:#ff4c00;
+    border-spacing:0px;
+}
+
+.heading {
+    font-family: Prociono;
 }
 
 .inputs {
-    margin:left;
-    width:99%;
-    padding:3px;
+    vertical-align:center;
     background-color:#ffbe00;
 }
 
-a:link {
-    text-decoration:none;
-}
-
 #xlit_key_label {
+    float:right;
+    margin-right:40px;
     font-size:70%;
 }
 
@@ -28,6 +34,14 @@ a:link {
     font-size:200%;
     color:#fff;
     width:10em;
+}
+
+.matches a:link {
+    text-decoration:none;
+}
+
+.matches ul {
+    list-style-type: circle;
 }
 
 .matches {
@@ -47,7 +61,10 @@ dl {
     float: left;
 }
 
-dl dd {
-    display: block;
-    margin: 0;
+dd {
+    float:left;
+}
+
+dt {
+    float:left;
 }

@@ -6,34 +6,33 @@
 
   <body>
     <table class="toplevel_table">
-      <tr colspan="2">
-        <td><h1 class="heading"><span id="main_heading">Xape</span></h1></td>
-      </tr>
       <tr>
         <td colspan="2">
-          <div class="inputs">
-            <form id="f">
-              <select id="language">
-                <option value="he">Hebrew</option>
-              </select>
-              <a id="xlit_key_toggle" href="#"><span id="xlit_key_label">Key</span></a>
-              <input type="text" id="phrase" />
-            </form>
-          </div>
+          <h1 class="heading"><span id="main_heading">Xape</span></h1>
+        </td>
       </tr>
-      <tr>
+      <tr class="inputs">
         <td>
-          <div class="outputs">
-            <dl>
-              <dt id="phrase_text"></dt>
-              <dd id="phrase_enum"></dd>
-            </dl>
-          </div>
+          <form id="f">
+            <select id="language">
+              <option value="he">Hebrew</option>
+            </select>
+            <input type="text" id="phrase" />
+          </form>
         </td>
         <td>
-          <div class="matches">
-            <ul id="match_list"></ul>
-          </div>
+          <a id="xlit_key_toggle" href="#"><span id="xlit_key_label">Transliteration Key</span></a>
+        </td>
+      </tr>
+      <tr>
+        <td class="outputs">
+          <dl>
+            <dt id="phrase_text"></dt>
+            <dd id="phrase_enum"></dd>
+          </dl>
+        </td>
+        <td class="matches">
+          <ul id="match_list"></ul>
         </td>
       </tr>
       <tr>
