@@ -47,4 +47,11 @@ get '/777/:language/:phrase' => sub {
     return qq(<dl><dt>$phrase</dt><dd>$enum</dd></dl>);
 };
 
+ajax '/languages/:language/xlit' => sub {
+    my $xlitmap = Xape::Enumerator->new(params->{language})->charset->xlitmap;
+    my %rtable = map {$xlitmap->{$_} => $_} keys %$xlitmap;
+    header('Content-Type' => 'application/json; charset=utf-8');
+    return to_json(\%rtable);
+};
+
 start;

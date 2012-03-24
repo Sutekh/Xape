@@ -18,6 +18,12 @@
     margin:auto;
     width:10em;
 }
+
+#xlit_key_display {
+    margin:auto;
+    width:27em;
+}
+
 dl {
     float: left;
 }

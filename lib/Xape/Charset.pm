@@ -11,6 +11,7 @@ method lookup($in) {
 }
 
 method xlit_lookup($in) {
+    return $in unless $self->xlitmap;
     return $self->xlitmap->{uc($in)};
 }
 
