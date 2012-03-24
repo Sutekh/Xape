@@ -1,25 +1,44 @@
+body {
+    background-color:#a63100;
+}
+
 .toplevel_table {
     margin:auto;
     width:40%;
-    background-color:#b0e0b0;
+    background-color:#ff4c00;
 }
 
 .inputs {
     margin:left;
-    width:20em;
+    width:99%;
+    padding:3px;
+    background-color:#ffbe00;
+}
+
+a:link {
+    text-decoration:none;
+}
+
+#xlit_key_label {
+    font-size:70%;
 }
 
 .outputs {
     margin:auto;
+    font-size:200%;
+    color:#fff;
     width:10em;
 }
 
 .matches {
     margin:auto;
+    font-size:200%;
+    color:#fff;
     width:10em;
 }
 
-#xlit_key_display {
+.xlit_key_display {
+    background-color:#ffdb73;
     margin:auto;
     width:27em;
 }
