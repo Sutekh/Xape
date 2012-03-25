@@ -4,67 +4,30 @@
 }
 
 body {
-    background-color:#a63100;
+    padding-top: 60px;
 }
 
-.toplevel_table {
-    margin:auto;
-    width:50%;
-    background-color:#ff4c00;
-    border-spacing:0px;
+label {
+    float:left;
+    padding-right:5px;
 }
 
 .heading {
     font-family: Prociono;
 }
 
-.inputs {
-    vertical-align:center;
-    background-color:#ffbe00;
+.result {
+    font-size: 200%;
 }
 
-#xlit_key_label {
-    float:right;
-    margin-right:40px;
-    font-size:70%;
+.match_list {
+    font-size: 200%;
 }
 
-.outputs {
-    margin:auto;
-    font-size:200%;
-    color:#fff;
-    width:10em;
-}
-
-.matches a:link {
-    text-decoration:none;
-}
-
-.matches ul {
-    list-style-type: circle;
-}
-
-.matches {
-    margin:auto;
-    font-size:200%;
-    color:#fff;
-    width:10em;
+.pad_text {
+    padding: 10px;
 }
 
 .xlit_key_display {
-    background-color:#ffdb73;
-    margin:auto;
-    width:27em;
-}
-
-dl {
-    float: left;
-}
-
-dd {
-    float:left;
-}
-
-dt {
-    float:left;
+    font-size: 150%;
 }
