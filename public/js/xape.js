@@ -1,5 +1,6 @@
 $(document).ready(
     function() {
+        get_languages();
         $("#phrase").val("VIAOV").focus();
         $("#xlit_key_toggle").click(toggle_xlit_key);
         $("#xlit_key_display").hide();
@@ -12,6 +13,13 @@ $(document).ready(
     }
 );
 
+var xlit_mappings = {};
+
+function get_xlit_mapping(language) {
+    var uri = "languages/" + language + "/xlit";
+    $.getJSON(uri, null, update_xlit_map);
+}
+
 function toggle_xlit_key() {
     var display = $("#xlit_key_display");
 
@@ -20,15 +28,26 @@ function toggle_xlit_key() {
     }
     else {
         var language = $("#language").val();
-        var uri = "languages/" + language + "/xlit";
-        $.getJSON(uri, null, update_xlit_map);
+        var mapping = xlit_mappings[language];
+        if (! mapping) {
+            get_xlit_mapping(language);
+        }
+        else {
+            $("#xlit_key_display").html(render_html_from_xlit_map(mapping));
+        }
         display.show();
     }
 }
 
 function update_xlit_map(data, textStatus, jqXHR) {
+    var mapping = render_html_from_xlit_map(data);
+    xlit_mappings[$("#language").val()] = data;
+    $("#xlit_key_display").html(mapping);
+}
+
+function render_html_from_xlit_map(json) {
     var keys = [];
-    for (var key in data) {
+    for (var key in json) {
         keys.push(key);
     }
     var mapping = '<table class="xlit_key_table"><tr>';
@@ -37,10 +56,10 @@ function update_xlit_map(data, textStatus, jqXHR) {
     });
     mapping += "</tr><tr>";
     keys.sort().forEach( function(key) {
-        mapping += "<td>"+data[key]+"<td>";
+        mapping += "<td>"+json[key]+"<td>";
     });
     mapping += "</tr></table>";
-    $("#xlit_key_display").html(mapping);
+    return mapping;
 }
 
 function get_enum(phrase, language) {
@@ -64,4 +83,16 @@ function update_results(data, textStatus, jqXHR) {
             );
         }
     );
+}
+
+function get_languages() {
+    var uri = encodeURI("languages");
+    $.getJSON(uri, null, update_language_list);
+}
+
+function update_language_list(data, textStatus, jqXHR) {
+    var lang_select = $("#language");
+    data.forEach(function (a) {
+        lang_select.append('<option value="'+ a.id +'">' + a.name + '</option>');
+    });
 }

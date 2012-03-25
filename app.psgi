@@ -54,4 +54,10 @@ ajax '/languages/:language/xlit' => sub {
     return to_json(\%rtable);
 };
 
+ajax '/languages' => sub {
+    my @languages = database->quick_select('languages', {});
+    header('Content-Type' => 'application/json; charset=utf-8');
+    return to_json(\@languages);
+};
+
 start;
