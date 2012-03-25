@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/xape.css" type="text/css" />
+
+    <title>Xape Ape</title>
+  </head>
+
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <span class="brand heading" href="#">Xape Ape</span>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="span6 offset3">
+        <p>
+          Xape is a gematria calculator and thesaurus. Enter a word or
+          phrase of the selected language and Xape will calculate its
+          enumerated value. Xape remembers previous inquiries and will
+          show a list of other words and phrases which have the same
+          value. The more Xape gets used, the more useful it
+          becomes. Unless its dictionary gets filled with crap.
+        </p>
+        <p>
+          In future versions, the definitions of the word and its
+          corollaries will be included in the display. Also planned is
+          a means of marking and filtering for high-value matches in
+          order to counter the aforementioned crap filling.
+        </p>
+        <p>
+          The Xape web interface is built over a simple RESTful API
+          service written in Perl. You can embed these service
+          requests into your own apps. Briefly, sending an Ajax GET
+          query to "/777/he/iadnamad" will return a JSON bundle
+          containing the enumerated value for the Hebrew ("he") word
+          "iadnamad", UTF-8 encoded Hebrew rendering of the word, and
+          an array of corollated words. You can also query directly in
+          the native character set, as in
+          "/777/he/&#01497;&#01488;&#01491;&#01503;&#01488;&#01502;&#01488;&#01491;".
+        </p>
+        <p>
+          Each language can have a transliteration of more easily
+          typed Latin characters. The transliteration mapping is
+          available at, e.g., "/languages/he/xlit" for Hebrew.
+        </p>
+        <p>
+          The project is available for cloning/forking
+          on <a href="https://github.com/ctfliblime/Xape/">Github</a>. Bug
+          reports, feature suggestions, and&mdash;most
+          especially&mdash;pull requests are welcome there.
+      </div>
+    </div>
+  </div>
+
+  </body>
+
+  <script type="text/javascript"
+          src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/xape.js"></script>
+
+</html>
